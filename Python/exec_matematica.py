@@ -1,3 +1,6 @@
-import matematica
+'''
+Isso é um Docstring? Se sim, posso acessá-lo no help!
+'''
+from matematica import soma
 
-print(matematica.soma(13, 2))
+print(soma(13, 2))
