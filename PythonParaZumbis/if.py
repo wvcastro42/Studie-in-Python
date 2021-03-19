@@ -56,7 +56,4 @@ print(f'Sua conta deu R$ {minutos * taxa:.2f} reais')
 
 
 
-
-
-
 #.

@@ -1,8 +1,11 @@
-# fim = int(input('Digite um número: '))
-# x = 1
-# while x <= fim:
-#     print(x)
-#     x += 1
+n = int(input(f'Digite um número: '))
+fat = 1
+i = 1
+
+while i <= n:
+    fat = fat * i
+    i += 1
+print(f'Total = {fat}')
 
 # '''Imprimir os número pares'''
 # fim = int(input('Digite um número: '))
@@ -41,17 +44,17 @@
 #     i += 1
 # print(f'fat({n}) = {fat}')
 
-''' Média até digitar 0 '''
-soma = 0
-n = 0
-while True:
-    x = float(input('n (zero sai): '))
-    if x == 0:
-        break
-    else:
-        soma = soma + x
-        n += 1
-print(f'Média: {soma/n:.1f}')
+# ''' Média até digitar 0 '''
+# soma = 0
+# n = 0
+# while True:
+#     x = float(input('n (zero sai): '))
+#     if x == 0:
+#         break
+#     else:
+#         soma = soma + x
+#         n += 1
+# print(f'Média: {soma/n:.1f}')
 
 
 
