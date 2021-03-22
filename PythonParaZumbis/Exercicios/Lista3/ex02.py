@@ -7,6 +7,5 @@ psw = input('Digite uma senha: ')
 while name.lower().strip() == psw.lower().strip():
     if name.lower().strip() == psw.lower().strip():
         psw = input('Digite uma senha diferente de seu nome: ')
-    else:
-        break
+    break
 print('Dados registrados.')
