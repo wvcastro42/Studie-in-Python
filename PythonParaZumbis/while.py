@@ -1,11 +1,23 @@
-n = int(input(f'Digite um número: '))
-fat = 1
-i = 1
+notas = []
+i, soma = 0, 0
 
-while i <= n:
-    fat = fat * i
+while i <= 3:
+    notas.append(int(input('Digite um número: ')))
+    soma = soma + notas[i]
     i += 1
-print(f'Total = {fat}')
+print(f'Média de {notas} é igual a {soma/4}')
+
+
+
+
+# n = int(input(f'Digite um número: '))
+# fat = 1
+# i = 1
+#
+# while i <= n:
+#     fat = fat * i
+#     i += 1
+# print(f'Total = {fat}')
 
 # '''Imprimir os número pares'''
 # fim = int(input('Digite um número: '))
