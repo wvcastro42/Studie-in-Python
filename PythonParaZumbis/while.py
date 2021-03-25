@@ -8,8 +8,6 @@ while i <= 3:
 print(f'Média de {notas} é igual a {soma/4}')
 
 
-
-
 # n = int(input(f'Digite um número: '))
 # fat = 1
 # i = 1
