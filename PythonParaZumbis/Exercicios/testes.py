@@ -1,4 +1,11 @@
-def array_count9(nums):
-  return len([i for i in nums if i == 9])
+nums = [5, 2, 3]
+lista = []
 
-print(array_count9(['oi', 0, 0, 11]))
+if nums[0] > nums[-1]:
+    for i in range(len(nums)):
+        lista.append(nums[0])
+else:
+    for i in range(len(nums)):
+        lista.append(nums[-1])
+
+print(lista)

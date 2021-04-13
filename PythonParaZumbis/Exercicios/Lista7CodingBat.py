@@ -10,23 +10,37 @@ def multstring(s, n):
 
 # B. string_splosion
 # string_splosion('Code') -> 'CCoCodCode'
-# string_splosion('abc') -> 'aababc'
+# string_splosion('abc') -> 'aababc'b
 # string_splosion('ab') -> 'aab'
 def string_splosion(s):
-    k, i, j = len(s), 0, 0
-    palavra = ''
-    while i < len(s):
-        while j <= k:
-            palavra = palavra + s[:i]
-            j += 1
-            i += 1
-        return palavra
+    k = 1
+    resp = ''
+    while k <= len(s):
+        resp = resp + s[:k]
+        k = k + 1
+    return resp
+'''
+ou
+k = 1
+resp = ''
+while k <= len(s):
+    resp = resp + s[:k]
+    k += 1
+return resp
 
+ou
+
+for k in range(len(s)):
+    resp += s[:k]
+resp += s
+return resp
+'''
 
 # C. array_count9
 # conta quantas vezes aparece o 9 numa lista nums
 def array_count9(nums):
   return len([i for i in nums if i == 9])
+  #return nums.count(9)
 
 # D. array_front9
 # verifica se pelo menos um dos quatro primeiros é nove
@@ -35,6 +49,7 @@ def array_count9(nums):
 # array_front9([1, 2, 3, 4, 5]) -> False
 def array_front9(nums):
   return len([i for i in nums[0:4] if i == 9]) >= 1
+  #return 9 in nums[:4]
 
 # E. hello_name
 # seja uma string name
@@ -67,8 +82,7 @@ def extra_end(s):
 # first_half('HelloThere') -> 'Hello'
 # first_half('abcdef') -> 'abc'
 def first_half(s):
-    half = int(len(s) / 2)
-    return s[:half]
+    return s[:len(s)//2]
 
 # I. sem_pontas
 # seja uma string s de pelo menos dois caracteres
@@ -85,9 +99,9 @@ def sem_pontas(s):
 # left2('Hello') -> 'lloHe'
 # left2('Hi') -> 'Hi'
 def roda2(s):
-  if len(s) > 2: return (f'{s[2:]}{s[:2]}')
-  return s
-
+  # if len(s) > 2: return (f'{s[2:]}{s[:2]}')
+  # return s
+  return s[2:] + s[:2]
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.

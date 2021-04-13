@@ -7,7 +7,8 @@
 # first_last6([6, 1, 2, 3]) -> True
 # first_last6([3, 2, 1]) -> False
 def first_last6(nums): #
-  return
+    return nums[0] == 6 or nums[-1] == 6
+    return False
 
 # B. same_first_last #
 # retorna True se a lista nums
@@ -18,7 +19,7 @@ def first_last6(nums): #
 # same_first_last([1, 2, 3, 1]) -> True
 # same_first_last([1, 2, 1]) -> True
 def same_first_last(nums):
-  return 
+    return len(nums) > 0 and nums[0] == nums[-1]
 
 # C. common_end #
 # Dada duas listas a e b verifica se os dois primeiros são
@@ -28,7 +29,7 @@ def same_first_last(nums):
 # common_end([1, 2, 3], [7, 3, 2]) -> False
 # common_end([1, 2, 3], [1, 3]) -> True
 def common_end(a, b):
-  return 
+    return a[0] == b[0] or a[-1] == b[-1]
 
 # D. maior_ponta #
 # Dada uma lista não vazia, cria uma nova lista onde todos
@@ -37,14 +38,24 @@ def common_end(a, b):
 # maior_ponta([1, 2, 3]) -> [3, 3, 3]
 # maior_ponta([1, 3, 2]) -> [2, 2, 2]
 def maior_ponta(nums):
-  return
+    lista = []
+    if nums[0] > nums[-1]:
+        for i in range(len(nums)):
+            lista.append(nums[0])
+    else:
+        for i in range(len(nums)):
+            lista.append(nums[-1])
+    return lista
+
 
 # E. sum2 #
 # Dada uma lista de inteiros de qualquer tamanho
 # retorna a soma dos dois primeiros elementos
 # se a lista tiver menos de dois elementos, soma o que for possível
 def sum2(nums):
-  return 
+    if len(nums) > 1: return nums[0] + nums[1]
+    if len(nums) == 1: return int(nums[0])
+    return 0
 
 # F. middle_way #
 # sejam duas listas de inteiros a e b
@@ -54,7 +65,7 @@ def sum2(nums):
 # middle_way([7, 7, 7], [3, 8, 0]) -> [7, 8]
 # middle_way([5, 2, 9], [1, 4, 5]) -> [2, 4]
 def middle_way(a, b):
-  return 
+  return [a[len(a) //2 ], b[len(b) // 2]]
 
 # G. date_fashion
 # você e sua namorada(o) vão a um restaurante
@@ -71,7 +82,9 @@ def middle_way(a, b):
 # date_fashion(5, 2) -> 0
 # date_fashion(5, 5) -> 1
 def date_fashion(eu, par):
-  return
+    if (eu >= 8 and par > 2) or (par >= 8 and eu > 2): return 2
+    if (eu >= 3 and par > 2) or (par >= 3 and eu > 2): return 1
+    if eu <= 2 or par <= 2: return 0
 
 # H. squirrel_play
 # os esquilos na FATEC brincam quando a temperatura está entre 60 e 90
@@ -82,7 +95,10 @@ def date_fashion(eu, par):
 # squirrel_play(95, False) -> False
 # squirrel_play(95, True) -> True
 def squirrel_play(temp, is_summer):
-  return
+    if is_summer:
+        if temp >= 60 and temp <= 100: return True
+    if temp >= 60 and temp <= 90: return True
+    return False
 
 # I. pego_correndo
 # você foi pego correndo
@@ -96,9 +112,16 @@ def squirrel_play(temp, is_summer):
 # caso seja seu aniversário a velocidade pode ser 5 km/h maior em todos os casos
 # pego_correndo(60, False) -> 0
 # pego_correndo(65, False) -> 1
-# pego_correndo(65, True) -> 0 
+# pego_correndo(65, True) -> 0
 def pego_correndo(speed, is_birthday):
-  return
+    if is_birthday:
+        if speed >= 87: return 2
+        if speed >= 67 and speed <= 86: return 1
+        return 0
+    else:
+        if speed >= 81: return 2
+        if speed >= 61 and speed < 81: return 1
+        return 0
 
 # J. alarm_clock #
 # day: 0=domingo, 1=segunda, 2=terça, ..., 6=sábado
@@ -113,7 +136,10 @@ def pego_correndo(speed, is_birthday):
 # alarm_clock(5, False) -> '7:00'
 # alarm_clock(0, False) -> '10:00'
 def alarm_clock(day, vacation):
-  return
+    if vacation and day in [0, 6]: return 'off'
+    if vacation and day in [1, 2, 3, 4, 5]: return '10:00'
+    if day in [1, 2, 3, 4, 5]: return '7:00'
+    return '10:00'
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
@@ -162,7 +188,7 @@ def main():
   test(maior_ponta([2, 2, 2]), [2, 2, 2])
   test(maior_ponta([2, 11, 2]), [2, 2, 2])
   test(maior_ponta([0, 0, 1]), [1, 1, 1])
-  
+
   print ()
   print ('sum2')
   test(sum2([1, 2, 3]), 3)
@@ -182,7 +208,7 @@ def main():
   test(middle_way([1, 9, 7], [4, 8, 8]), [9, 8])
   test(middle_way([1, 2, 3], [3, 1, 4]), [2, 1])
   test(middle_way([1, 2, 3], [4, 1, 1]), [2, 1])
-       
+
   print ()
   print ('date fashion')
   test(date_fashion(5, 10), 2)
@@ -210,8 +236,8 @@ def main():
   test(squirrel_play(100, False), False)
   test(squirrel_play(100, True), True)
   test(squirrel_play(105, True), False)
-  test(squirrel_play(59, False), False)	
-  test(squirrel_play(59, True), False)	
+  test(squirrel_play(59, False), False)
+  test(squirrel_play(59, True), False)
   test(squirrel_play(60, False), True)
 
   print ()

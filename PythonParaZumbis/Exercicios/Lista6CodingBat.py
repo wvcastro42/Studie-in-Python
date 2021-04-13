@@ -7,10 +7,7 @@
 # você pode ficar dormindo quando é feriado ou não é dia semana
 # retorne True ou False conforme você vá dormir ou não
 def dormir(dia_semana, feriado):
-  if not dia_semana and feriado: return True
-  if not dia_semana and not feriado: return True
-  if dia_semana and not feriado: return False
-  if dia_semana and feriado: return True
+  return not dia_semana or feriado
 
 
 # B. alunos_problema
@@ -19,10 +16,7 @@ def dormir(dia_semana, feriado):
 # temos problemas quando ambos estão sorrindo ou ambos não estão sorrindo
 # retorne True quando houver problemas
 def alunos_problema(a_sorri, b_sorri):
-  if a_sorri and b_sorri: return True
-  if not a_sorri and not b_sorri: return True
-  if not a_sorri and b_sorri: return False
-  if a_sorri and not b_sorri: return False
+  return a_sorri == b_sorri
 
 
 
@@ -34,6 +28,7 @@ def alunos_problema(a_sorri, b_sorri):
 def soma_dobro(a, b):
   if a != b: return a + b
   if a == b: return (a + b) * 2
+  #return 2*(a + b) if a ==b else a + b
 
 
 # D. diff21
@@ -43,8 +38,7 @@ def soma_dobro(a, b):
 # diff21(25) -> 8
 # dica: abs(x) retorna o valor absoluto de x
 def diff21(n):
-  if n <= 21: return 21 - n
-  if n > 21: return (n - 21) * 2
+  return 2 * abs(n - 21) if n > 21 else abs(n - 21)
 
 
 # E. papagaio
@@ -55,6 +49,8 @@ def diff21(n):
 def papagaio(falando, hora):
   return falando and hora in [21, 22, 23, 0, 1, 2, 3, 4, 5, 6]
   return falando and hora not in [21, 22, 23, 0, 1, 2, 3, 4, 5, 6]
+  #ou
+  #return falando and (hora < 7 or hora > 20) # and é prioritrário
 
 
 # F. dez
@@ -63,6 +59,8 @@ def papagaio(falando, hora):
 def dez(a, b):
     return 10 in [a, b, a + b]
     return False
+    #or
+    #return a == 10 or b == 10 or a + b == 10
 
 # G. dista10
 # seja um inteiro n
@@ -72,8 +70,7 @@ def dez(a, b):
 # dista10(90) -> True
 # dista10(89) -> False
 def dista10(n):
-  if abs(n-100) <= 10: return True
-  if abs(n-200) <= 10: return True
+  if abs(n-100) <= 10 or abs(n-200) <= 10: return True
   return False
 
 
@@ -94,6 +91,8 @@ def apaga(s, n):
             troca = troca + s[i]
         i += 1
     return troca
+    # ou
+    # return s[:n] + s[n+1:]
 
 
 # I. troca
