@@ -8,7 +8,9 @@
 # near_ten(17) -> False
 # near_ten(19) -> True
 def near_ten(n):
-  return
+    if (n+2) % 10 == 0 or (n-2) % 10 == 0 or n == 10: return True
+    if (n+1) % 10 == 0 or (n-1) % 10 == 0: return True
+    return False
 
 # B. lone_sum
 # Soma maluca: some os números inteiros a, b, e c
@@ -17,7 +19,11 @@ def near_ten(n):
 # lone_sum(3, 2, 3) -> 2
 # lone_sum(3, 3, 3) -> 0
 def lone_sum(a, b, c):
-  return
+    if a == b == c: return 0
+    if a == b: return c
+    if a == c: return b
+    if c == b: return a
+    return (a + b + c)
 
 # C. luck_sum #
 # Soma três inteiros a, b, c
@@ -26,7 +32,10 @@ def lone_sum(a, b, c):
 # lucky_sum(1, 2, 13) -> 3
 # lucky_sum(1, 13, 3) -> 1
 def lucky_sum(a, b, c):
-  return
+    if a == 13: return 0
+    if b == 13: return a
+    if c == 13: return (a + b)
+    return (a + b + c)
 
 # D. double_char #
 # retorna os caracteres da string original duplicados
@@ -34,7 +43,11 @@ def lucky_sum(a, b, c):
 # double_char('AAbb') -> 'AAAAbbbb'
 # double_char('Hi-There') -> 'HHii--TThheerree'
 def double_char(s):
-  return
+    new_s = ''
+    for i in s:
+        new_s = new_s + i * 2
+    return new_s
+
 
 # E. count_hi #
 # conta o número de vezes que aparece a string 'hi'
@@ -42,7 +55,7 @@ def double_char(s):
 # count_hi('ABChi hi') -> 2
 # count_hi('hihi') -> 2
 def count_hi(s):
-  return 
+    return s.count('hi')
 
 # F. cat_dog #
 # verifica se o aparece o mesmo número de vezes 'cat' e 'dog'
@@ -50,7 +63,7 @@ def count_hi(s):
 # cat_dog('catcat') -> False
 # cat_dog('1cat1cadodog') -> True
 def cat_dog(s):
-  return
+    return s.count('cat') == s.count('dog')
 
 # G. count_code #
 # conta quantas vezes aparece 'code'
@@ -60,7 +73,11 @@ def cat_dog(s):
 # count_code('codexxcode') -> 2
 # count_code('cozexxcope') -> 2
 def count_code(s):
-  return 
+    count = 0
+    for i in range(len(s)-3):
+        if s[i:i+2] == 'co' and s[i+3] == 'e':
+            count += 1
+    return count
 
 # H. end_other #
 # as duas strings devem ser convertidas para minúsculo via lower()
@@ -69,8 +86,13 @@ def count_code(s):
 # end_other('Hiabc', 'abc') -> True
 # end_other('AbC', 'HiaBc') -> True
 # end_other('abc', 'abXabc') -> True
+
 def end_other(a, b):
-  return
+    if len(a) >= len(b):
+        return a[-len(b):].lower() in b.lower()
+    if len(b) > len(a):
+        return b[-len(a):].lower() in a.lower()
+    return False
 
 # I. count_evens
 # conta os números pares da lista
@@ -78,7 +100,11 @@ def end_other(a, b):
 # count_evens([2, 2, 0]) -> 3
 # count_evens([1, 3, 5]) -> 0
 def count_evens(nums):
-  return 
+    count = 0
+    for i in nums:
+        if i % 2 == 0:
+            count += 1
+    return count
 
 # J. sum13 #
 # retorna a soma dos números de uma lista
@@ -88,7 +114,11 @@ def count_evens(nums):
 # sum13([1, 2, 2, 1, 13]) -> 6
 # sum13([13, 1, 2, 3, 4]) -> 0
 def sum13(nums):
-  return 
+    count = 0
+    for i in nums:
+        if i == 13: break
+        count += i
+    return count
 
 # K. has22 #
 # Verifica se na lista de números inteiros aparecem dois 2 consecutivos
@@ -96,7 +126,12 @@ def sum13(nums):
 # has22([1, 2, 1, 2]) -> False
 # has22([2, 1, 2]) -> False
 def has22(nums):
-  return
+    for i in range(len(nums)-1):
+        if nums[i] == 2:
+            if nums[i+1] == 2:
+                return True
+    return False
+
 
 # L. soma_na_lista #
 # Verifica se um número é soma de dois elementos distintos de uma lista
@@ -107,7 +142,12 @@ def has22(nums):
 # soma_na_lista(4, [2, 2, 2, 2]) -> False
 # soma_na_lista(4, [2, 2, 1, 3]) -> True
 def soma_na_lista(n, lista):
-  return
+    for index_i, elem_i in enumerate(lista):
+        for elem_j in lista[index_i + 1:]:
+            if elem_i + elem_j == n and elem_i != elem_j:
+                return True
+    return False
+
 
 # M.Difícil: Fila de tijolos sem usar loops #
 # queremos montar uma fila de tijolos de um tamanho denominado meta
@@ -118,7 +158,7 @@ def soma_na_lista(n, lista):
 # fila_tijolos(3, 1, 9) -> False
 # fila_tijolos(3, 2, 10) -> True
 def fila_tijolos(n_peq, n_gra, meta):
-  return
+    return (n_peq * 1 + n_gra * 5 >= meta)
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
@@ -324,7 +364,7 @@ def main():
   test(fila_tijolos(22, 2, 33), False)
   test(fila_tijolos(0, 2, 10), True)
   test(fila_tijolos(1000000, 1000, 1000100), True)
-  test(fila_tijolos(2, 1000000, 100003), False)
+  test(fila_tijolos(2, 1_000_000, 100_003), False)
   test(fila_tijolos(12, 2, 21), True)
 
 if __name__ == '__main__':

@@ -38,14 +38,15 @@ def common_end(a, b):
 # maior_ponta([1, 2, 3]) -> [3, 3, 3]
 # maior_ponta([1, 3, 2]) -> [2, 2, 2]
 def maior_ponta(nums):
-    lista = []
-    if nums[0] > nums[-1]:
-        for i in range(len(nums)):
-            lista.append(nums[0])
-    else:
-        for i in range(len(nums)):
-            lista.append(nums[-1])
-    return lista
+    return [max(nums[0], nums[-1])] * len(nums)
+    # lista = []
+    # if nums[0] > nums[-1]:
+    #     for i in range(len(nums)):
+    #         lista.append(nums[0])
+    # else:
+    #     for i in range(len(nums)):
+    #         lista.append(nums[-1])
+    # return lista
 
 
 # E. sum2 #
@@ -53,9 +54,10 @@ def maior_ponta(nums):
 # retorna a soma dos dois primeiros elementos
 # se a lista tiver menos de dois elementos, soma o que for possível
 def sum2(nums):
-    if len(nums) > 1: return nums[0] + nums[1]
-    if len(nums) == 1: return int(nums[0])
-    return 0
+    return sum(nums[:2])
+    # if len(nums) > 1: return nums[0] + nums[1]
+    # if len(nums) == 1: return int(nums[0])
+    # return 0
 
 # F. middle_way #
 # sejam duas listas de inteiros a e b
@@ -65,7 +67,7 @@ def sum2(nums):
 # middle_way([7, 7, 7], [3, 8, 0]) -> [7, 8]
 # middle_way([5, 2, 9], [1, 4, 5]) -> [2, 4]
 def middle_way(a, b):
-  return [a[len(a) //2 ], b[len(b) // 2]]
+    return [a[len(a) //2 ], b[len(b) // 2]]
 
 # G. date_fashion
 # você e sua namorada(o) vão a um restaurante
@@ -82,9 +84,15 @@ def middle_way(a, b):
 # date_fashion(5, 2) -> 0
 # date_fashion(5, 5) -> 1
 def date_fashion(eu, par):
-    if (eu >= 8 and par > 2) or (par >= 8 and eu > 2): return 2
-    if (eu >= 3 and par > 2) or (par >= 3 and eu > 2): return 1
-    if eu <= 2 or par <= 2: return 0
+    if eu <= 2 or par <=2:
+        return 0
+    if eu >= 8 or par >= 8:
+        return 2
+    return 1
+
+    # if (eu >= 8 and par > 2) or (par >= 8 and eu > 2): return 2
+    # if (eu >= 3 and par > 2) or (par >= 3 and eu > 2): return 1
+    # if eu <= 2 or par <= 2: return 0
 
 # H. squirrel_play
 # os esquilos na FATEC brincam quando a temperatura está entre 60 e 90
@@ -95,10 +103,12 @@ def date_fashion(eu, par):
 # squirrel_play(95, False) -> False
 # squirrel_play(95, True) -> True
 def squirrel_play(temp, is_summer):
-    if is_summer:
-        if temp >= 60 and temp <= 100: return True
-    if temp >= 60 and temp <= 90: return True
-    return False
+    return 60 <= temp <= 100 if is_summer else 60 <= temp <= 90
+
+    # if is_summer:
+    #     if temp >= 60 and temp <= 100: return True
+    # if temp >= 60 and temp <= 90: return True
+    # return False
 
 # I. pego_correndo
 # você foi pego correndo
@@ -115,13 +125,12 @@ def squirrel_play(temp, is_summer):
 # pego_correndo(65, True) -> 0
 def pego_correndo(speed, is_birthday):
     if is_birthday:
-        if speed >= 87: return 2
-        if speed >= 67 and speed <= 86: return 1
+        speed = speed - 5
+    if speed <= 60:
         return 0
-    else:
-        if speed >= 81: return 2
-        if speed >= 61 and speed < 81: return 1
-        return 0
+    if 61 <= speed <= 80:
+        return 1
+    return 2
 
 # J. alarm_clock #
 # day: 0=domingo, 1=segunda, 2=terça, ..., 6=sábado
@@ -136,10 +145,13 @@ def pego_correndo(speed, is_birthday):
 # alarm_clock(5, False) -> '7:00'
 # alarm_clock(0, False) -> '10:00'
 def alarm_clock(day, vacation):
-    if vacation and day in [0, 6]: return 'off'
-    if vacation and day in [1, 2, 3, 4, 5]: return '10:00'
-    if day in [1, 2, 3, 4, 5]: return '7:00'
-    return '10:00'
+    if vacation:
+        return 'off' if day in (0, 6) else '10:00'
+    return '10:00' if day in (0, 6) else '7:00'
+    # if vacation and day in [0, 6]: return 'off'
+    # if vacation and day in [1, 2, 3, 4, 5]: return '10:00'
+    # if day in [1, 2, 3, 4, 5]: return '7:00'
+    # return '10:00'
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
