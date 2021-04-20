@@ -14,7 +14,7 @@
 # donuts(5) returns 'Número de donuts: 5'
 # donuts(23) returns 'Número de donuts: muitos'
 def donuts(n):
-  return
+  return f'Número de donuts: {n}' if n < 10 else f'Número de donuts: muitos'
 
 # B. pontas
 # Dada uma string s, retorna uma string com as duas primeiras e as duas
@@ -22,31 +22,38 @@ def donuts(n):
 # Assim 'palmeiras' retorna 'paas'
 # No entanto, se a string tiver menos que 2 letras, retorna uma string vazia
 def pontas(s):
-  return 
+  return s[:2] + s[-2:] if len(s) >=2 else ''
 
 # C. fixa_primeiro
 # Dada uma string s, retorna uma string onde todas as ocorrências
 # do primeiro caracter são trocados por '*', exceto para o primeiro
 # Assim 'abacate' retorna 'ab*c*te'
-# Dica: use s.replace(stra, strb) 
+# Dica: use s.replace(stra, strb)
 def fixa_primeiro(s):
-  return 
+    new_word = s[0]
+    for i in s[1:]:
+        if i == s[0]:
+            new_word = new_word + '*'
+        else:
+            new_word += i
+    return new_word
+
 
 # D. mistura2
 # Sejam duas strings a e b
 # Retorno uma string '<a> <b>' separada por um espaço
-# com as duas primeiras letras trocadas de cada string 
+# com as duas primeiras letras trocadas de cada string
 #   'mix', pod' -> 'pox mid'
 #   'dog', 'dinner' -> 'dig donner'
 def mistura2(a, b):
-  return
+    return f'{b[:2]+a[2:]} {a[:2]+b[2:]}'
 
 # E. palindrome
 # Verifique se uma string é palíndrome
 #   palindrome('asa') True
-#   palindrome('casa') False 
+#   palindrome('casa') False
 def palindrome(s):
-  return
+    return s == s[::-1]
 
 # F. busca
 # Verifique quantas ocorrências de uma palavra há numa frase
@@ -54,7 +61,12 @@ def palindrome(s):
 # palavra = 'ana'
 # busca ('ana e mariana gostam de banana', 'ana') == 4
 def busca(frase, palavra):
-  return 
+    count = 0
+    for i in (len(frase)-len(palavra)):
+        if palavra in frase[i:len(palavra)]:
+            count += 1
+    return count
+
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
