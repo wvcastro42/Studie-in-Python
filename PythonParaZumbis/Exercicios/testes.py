@@ -1,15 +1,21 @@
 """Teste para os exercícios do Python Para Zumbis."""
 
 
-# F. busca
-# Verifique quantas ocorrências de uma palavra há numa frase
-# frase = 'ana e mariana gostam de banana'
-# palavra = 'ana'
-# busca ('ana e mariana gostam de banana', 'ana') == 4
+# J. zeros finais
+# Verifique quantos zeros há no final de um número inteiro positivo
+# Exemplo: 10010 tem 1 zero no fim e 908007000 possui três
+
+def zf(n):
+    s = str(n)
+    count = 0
+    for i in range(len(s)):
+        print(s[i])
+        if s[i] == '0' and s[i+1:] == (len(s[i+1:]))*'0':
+            count += 1
+    return count
 
 
-def busca(frase, palavra):
-    return len([k for k in range(len(frase)) if frase[k:k+len(palavra)] == palavra])
 
-print(busca('ana e mariana gostam de banana', 'ana'))
-  
+
+
+print (zf(908007000))

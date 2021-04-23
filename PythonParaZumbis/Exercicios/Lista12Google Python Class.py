@@ -12,14 +12,23 @@
 # adiciona 'ing' no final
 # Caso a string já termine em 'ing', acrescentará 'ly'.
 def verbing(s):
-  return 
+    if len(s) >= 3 and s[-3:] != 'ing':
+        return s + 'ing'
+    elif s[-3:] == 'ing':
+        return s + 'ly'
+    return s
 
 # H. not_bad
 # Dada uma string, procura a primeira ocorrência de 'not' e 'bad'
 # Se 'bad' aparece depois de 'not' troca 'not' ... 'bad' por 'good'
 # Assim 'This dinner is not that bad!' retorna 'This dinner is good!'
 def not_bad(s):
-  return
+    for i in s:
+        find_not = s.find('not')
+        find_bad = s.find('bad')
+        if find_not < find_bad and find_bad != -1:
+            return s.replace(s[find_not:find_bad +3], 'good')
+        return s
 
 # I. inicio_final
 # Divida cada string em dois pedaços.
@@ -28,14 +37,32 @@ def not_bad(s):
 # Exemplo: 'abcde', divide-se em 'abc' e 'de'.
 # Dadas 2 strings, a e b, retorna a string
 #  a-inicio + b-inicio + a-final + b-final
+def split_string(s):
+    half_len_s = len(s)//2
+    if len(s) % 2 == 0:
+        s1 = s[:half_len_s]
+        s2 = s[half_len_s:]
+    else:
+        s1 = s[:half_len_s+1]
+        s2 = s[half_len_s+1:]
+    return s1, s2
+
 def inicio_final(a, b):
-  return
+    a1, a2 = split_string(a)
+    b1, b2 = split_string(b)
+    return a1+b1+a2+b2
+
 
 # J. zeros finais
 # Verifique quantos zeros há no final de um número inteiro positivo
 # Exemplo: 10010 tem 1 zero no fim e 908007000 possui três
 def zf(n):
-  return
+    s = str(n)
+    count = 0
+    for i in range(len(s)):
+        if s[i] == '0' and s[i+1:] == (len(s[i+1:]))*'0':
+            count += 1
+    return count
 
 # K. conta 2
 # Verifique quantas vezes o dígito 2 aparece entre 0 e n-1
@@ -92,6 +119,6 @@ def main():
   test(inip2(7), 46)
   test(inip2(133), 316)
   test(inip2(1024), 10)
-  
+
 if __name__ == '__main__':
   main()
