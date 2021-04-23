@@ -1,21 +1,17 @@
 """Teste para os exercícios do Python Para Zumbis."""
+# L. inicio em potencia de 2
+# Dado um número inteiro positivo n retorne a primeira potência de 2
+# que tenha o início igual a n
+# Exemplo: para n = 65 retornará 16 pois 2**16 = 65536
 
-
-# J. zeros finais
-# Verifique quantos zeros há no final de um número inteiro positivo
-# Exemplo: 10010 tem 1 zero no fim e 908007000 possui três
-
-def zf(n):
-    s = str(n)
-    count = 0
-    for i in range(len(s)):
-        print(s[i])
-        if s[i] == '0' and s[i+1:] == (len(s[i+1:]))*'0':
-            count += 1
-    return count
+def inip2(n):
+    for i in range(1_000_000):
+        num = str(2**i)
+        if num[:len(str(n))] == str(n):
+            return i
 
 
 
 
 
-print (zf(908007000))
+print (inip2(7))
