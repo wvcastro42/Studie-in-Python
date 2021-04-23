@@ -1,17 +1,22 @@
 """Teste para os exercícios do Python Para Zumbis."""
-# L. inicio em potencia de 2
-# Dado um número inteiro positivo n retorne a primeira potência de 2
-# que tenha o início igual a n
-# Exemplo: para n = 65 retornará 16 pois 2**16 = 65536
-
-def inip2(n):
-    for i in range(1_000_000):
-        num = str(2**i)
-        if num[:len(str(n))] == str(n):
-            return i
 
 
+# B. x_antes
+# Dada uma lista de strings retorna uma lista onde
+# todos os elementos que começam com x ficam sorteados antes
+# Ex.: ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] retorna
+# ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
+# Dica: monte duas listas separadas e junte-as no final
+def x_antes(words):
+    new_list_x = []
+    end_list = []
+    for i in words:
+        if i[0].lower() == 'x':
+            print(i)
+            new_list_x.append(i)
+        else:
+            end_list.append(i)
+    new_list_x.extend(end_list)
+    return new_list_x
 
-
-
-print (inip2(7))
+print(x_antes(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']))
