@@ -1,22 +1,20 @@
 """Teste para os exercícios do Python Para Zumbis."""
 
 
-# B. x_antes
-# Dada uma lista de strings retorna uma lista onde
-# todos os elementos que começam com x ficam sorteados antes
-# Ex.: ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] retorna
-# ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
-# Dica: monte duas listas separadas e junte-as no final
-def x_antes(words):
+# C. sort_last
+# Dada uma lista de tuplas não vazias retorna uma tupla ordenada
+# por ordem crescente do último elemento
+# Exemplo [(1, 7), (1, 3), (3, 4, 5), (2, 2)] retorna
+# [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
+# Dica: use key=função que você definiu e que retorna o último elemento
+def sort_last(tuples):
     new_list_x = []
-    end_list = []
-    for i in words:
-        if i[0].lower() == 'x':
-            print(i)
-            new_list_x.append(i)
-        else:
-            end_list.append(i)
-    new_list_x.extend(end_list)
-    return new_list_x
+    for index_t, element_t in enumerate(tuples):
+        print(f'atual: {element_t[-1]}')
+        print(f'próximo: {tuples[index_t+1][-1]}\n')
+        # break
+    return 0
 
-print(x_antes(['mix', 'xyz', 'apple', 'xanadu', 'aardvark']))
+
+x = [(1, 7), (1, 3), (3, 4, 5), (2, 2)]
+print(sort_last(x))

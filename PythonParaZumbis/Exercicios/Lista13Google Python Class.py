@@ -11,11 +11,14 @@
 # com tamanho >= 2 onde o primeiro e o último caracteres são iguais
 # Exemplo: ['aba', 'xyz', 'aa', 'x', 'bbb'] retorna 3
 def fim_igual(words):
-    count = 0
-    for i in words:
-        if len(i) >= 2 and i[0] == i[-1]:
-            count += 1
-    return count
+    return len([w for w in words if len(w) >= 2 and w[0] == w[-1]])
+
+    # count = 0
+    # for i in words:
+    #     if len(i) >= 2 and i[0] == i[-1]:
+    #         count += 1
+    # return count
+
 
 # B. x_antes
 # Dada uma lista de strings retorna uma lista onde
@@ -36,8 +39,10 @@ def x_antes(words):
 
 
 
+
+
 def last(a): #esta def serve para a letra C
-  return
+    return a[-1]
 
 # C. sort_last
 # Dada uma lista de tuplas não vazias retorna uma tupla ordenada
@@ -46,8 +51,7 @@ def last(a): #esta def serve para a letra C
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Dica: use key=função que você definiu e que retorna o último elemento
 def sort_last(tuples):
-  return
-
+    return sorted(tuples, key=last)
 
 
 

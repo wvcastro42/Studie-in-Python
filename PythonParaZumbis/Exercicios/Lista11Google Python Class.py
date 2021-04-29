@@ -22,7 +22,7 @@ def donuts(n):
 # Assim 'palmeiras' retorna 'paas'
 # No entanto, se a string tiver menos que 2 letras, retorna uma string vazia
 def pontas(s):
-  return s[:2] + s[-2:] if len(s) >=2 else ''
+  return s[:2] + s[-2:] if len(s) >= 2 else ''
 
 # C. fixa_primeiro
 # Dada uma string s, retorna uma string onde todas as ocorrências
@@ -30,14 +30,14 @@ def pontas(s):
 # Assim 'abacate' retorna 'ab*c*te'
 # Dica: use s.replace(stra, strb)
 def fixa_primeiro(s):
-    new_word = s[0]
-    for i in s[1:]:
-        if i == s[0]:
-            new_word = new_word + '*'
-        else:
-            new_word += i
-    return new_word
-
+    # new_word = s[0]
+    # for i in s[1:]:
+    #     if i == s[0]:
+    #         new_word = new_word + '*'
+    #     else:
+    #         new_word += i
+    # return new_word
+    return s[0] + s[1:].replace(s[0], '*')
 
 # D. mistura2
 # Sejam duas strings a e b
@@ -46,7 +46,7 @@ def fixa_primeiro(s):
 #   'mix', pod' -> 'pox mid'
 #   'dog', 'dinner' -> 'dig donner'
 def mistura2(a, b):
-    return f'{b[:2]+a[2:]} {a[:2]+b[2:]}'
+    return f'{b[:2] + a[2:]} {a[:2] + b[2:]}'
 
 # E. palindrome
 # Verifique se uma string é palíndrome
@@ -61,11 +61,7 @@ def palindrome(s):
 # palavra = 'ana'
 # busca ('ana e mariana gostam de banana', 'ana') == 4
 def busca(frase, palavra):
-    count = 0
-    for i in (len(frase)-len(palavra)):
-        if palavra in frase[i:len(palavra)]:
-            count += 1
-    return count
+    return len([k for k in range(len(frase)) if frase[k:k+len(palavra)] == palavra])
 
 
 # Provided simple test() function used in main() to print
