@@ -10,7 +10,15 @@
 
 # D. Dada uma lista de números retorna uma lista sem os elementos repetidos
 def remove_iguais(nums):
-  return
+    return list(set(nums)) #o método SET não permite itens duplicados
+    # if len(nums) > 0:
+    #     nums_list = [nums[0]]
+    #     for num in nums[1:]:
+    #         if num not in nums_list:
+    #             nums_list.append(num)
+    #     return sorted(nums_list)
+    # return nums
+
 
 # E. Cripto desafio!!
 # Dada uma frase, você deve retirar todas as letras repetidas das palavras
@@ -20,7 +28,10 @@ def remove_iguais(nums):
 # depois tente ordenar as letras e montar uma string com o resultado.
 # Utilize listas auxiliares se facilitar
 def cripto(frase):
-  return 
+    return ' '.join([''.join(
+                sorted(set(p)))
+                for p in frase.split()])
+
 
 # F. Derivada de um polinômio
 # Os coeficientes de um polinômio estão numa lista na ordem do seu grau.
@@ -28,7 +39,7 @@ def cripto(frase):
 # Exemplo: [3, 2, 5, 2] retorna [2, 10, 6]
 # A derivada de 3 + 2x + 5x^2 + 2x^3 é 2 + 10x + 6x^2
 def derivada(coef):
-  return
+    return [c * grau for c, grau in enumerate(coef)][1:]
 
 # G. Soma em listas invertidas
 # Colocamos os dígitos de dois números em listas ao contrário
@@ -46,7 +57,7 @@ def soma(n1, n2):
 # anagrama('amor', 'ramo') = True
 # anagrama('aba', 'baba') = False
 def anagrama(s1, s2):
-  return 
+    return sorted(s1) == sorted(s2)
 
 def test(obtido, esperado):
   if obtido == esperado:
