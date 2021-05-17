@@ -14,7 +14,7 @@ def meu_mim(a, b, c, d, *args):
     return min((a, b, c, d, *args))
 
 #Desempacotamento da lista dentro da função.
-print(meu_max(*lista))
+print(meu_mim(*lista))
 
 
 dicionario = {
@@ -32,4 +32,4 @@ def meu_max(a=0, b=0, c=0, d=0):
 print(meu_max(**dicionario))
 
 
-https://www.youtube.com/watch?v=-K38SBdeuys&list=PLOQgLBuj2-3LRIKxqcse1EL4hXhUFuHsR&index=3&ab_channel=EduardoMendes
+# https://www.youtube.com/watch?v=-K38SBdeuys&list=PLOQgLBuj2-3LRIKxqcse1EL4hXhUFuHsR&index=3&ab_channel=EduardoMendes
