@@ -1,7 +1,8 @@
-def convert_num(x: int) -> int:
-    str_x = str(x)[::-1]
-    int_x = int(str_x)
-    n_zeros = len(str_x) - len(str(int_x))
+def convert_num(num: int) -> int:
+    if num == 0:
+        return 1
+    int_num = int(str(num)[::-1])
+    n_zeros = len(str(num)) - len(str(int_num))
     return n_zeros
 
-print(convert_num(1000))
+print(convert_num(1001))
