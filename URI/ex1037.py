@@ -13,6 +13,9 @@ Saída
 A saída deve ser uma mensagem conforme exemplo abaixo.
 """
 num = float(input())
+lista = [[0,25], [25,50], [50,75], [75,100]]
+response = {0: '[0,25]', 25: '(25,50]', 50: '(50,75]', 75: '(75, 100]'}
 
-if num in range(0, 25.00001):
-    if num == 0 or num == 25:
+for i in lista:
+    if num in range(i[0], i[1]):
+        pass
