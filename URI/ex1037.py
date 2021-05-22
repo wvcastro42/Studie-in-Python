@@ -12,10 +12,32 @@ O arquivo de entrada contém um número com ponto flutuante qualquer.
 Saída
 A saída deve ser uma mensagem conforme exemplo abaixo.
 """
-num = float(input())
-lista = [[0,25], [25,50], [50,75], [75,100]]
-response = {0: '[0,25]', 25: '(25,50]', 50: '(50,75]', 75: '(75, 100]'}
 
-for i in lista:
-    if num in range(i[0], i[1]):
-        pass
+x = float(input())
+
+if 0<= x <= 25:
+    print('Intervalo [0,25]')
+if 25< x <= 50:
+    print('Intervalo (25,50]')
+if 50< x <= 75:
+    print('Intervalo (50,75]')
+if 75< x <= 100:
+    print('Intervalo (75,100]')
+if x >100 or x<0:
+    print('Fora de intervalo')
+
+
+
+
+# import numpy as np
+#
+# num = float(input())
+# lista = [[0, 25], [25, 50], [50, 75], [75, 100]]
+# response = {0: '[0,25]', 25: '(25,50]', 50: '(50,75]', 75: '(75, 100]'}
+#
+# if num < 0 or num > 100:
+#     print('Fora de intervalo')
+#
+# for i in lista:
+#     if num in np.arange(i[0], i[1], 0.01):
+#         print(response[i[0]])
