@@ -5,7 +5,7 @@ a = int(input('Digite o valor de A: '))
 b = int(input('Digite o valor de B: '))
 c = int(input('Digite o valor de C: '))
 
-if a + b > c or a + c > b or b + c > a:
+if a + b > c and a + c > b and b + c > a:
     if a == b == c:
         print('Este é um triângulo Equilátero!')
     elif a == b or b == c or a == c:
