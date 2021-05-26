@@ -1,5 +1,7 @@
 from math import fsum
-
+"""
+return 0 + sum([int(word) for word in text.split(' ') if word.isnumeric()])
+"""
                         """
                         def sum_numbers(text):
                             tot=0
