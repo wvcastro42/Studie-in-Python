@@ -17,6 +17,7 @@ def nearest_value(values: set, one: int) -> int:
         return lista[idx_one + 1]
 
 
+
 if __name__ == '__main__':
     print("Example:")
     print(nearest_value({4, 7, 10, 11, 12, 17}, 9))
