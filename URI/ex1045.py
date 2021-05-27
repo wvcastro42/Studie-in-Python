@@ -14,9 +14,24 @@ Saída
 Imprima todas as classificações do triângulo especificado na entrada.
 """
 
+nums = list(map(float, input().split()))
+nums.sort(reverse=True)
+a, b, c = nums[0], nums[1], nums[2]
 
-a = [1,2,6,4,7]
->>> a.sort(reverse=True)
->>> a
-[7, 6, 4, 2, 1]
->>>
+if a**2 == (b**2 + c**2):
+    print('TRIANGULO RETANGULO')
+
+if a**2 < (b**2 + c**2):
+    print('TRIANGULO ACUTANGULO')
+
+if not a >= (b+c) and a**2 > (b**2 + c**2):
+    print('TRIANGULO OBTUSANGULO')
+
+if a == b == c:
+    print('TRIANGULO EQUILATERO')
+
+if (a == b and a != c) or (a == c and a != b) or (b == c and b != a):
+    print('TRIANGULO ISOSCELES')
+
+if a >= (b+c):
+    print('NAO FORMA TRIANGULO')
