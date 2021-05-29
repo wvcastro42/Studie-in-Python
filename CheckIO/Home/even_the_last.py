@@ -1,6 +1,6 @@
 def checkio(array: list) -> int:
 
-    if len(array) == None:
+    if len(array) == 0:
         return 0
 
     elif len(array) == 1:
@@ -10,11 +10,9 @@ def checkio(array: list) -> int:
         count = 0
         for i in range(0, len(array), 2):
             count = count + array[i]
-
-        x = count * array[-1]
+        x = count * (array[-1])
         return x
 
-# print(checkio([1, 3, 5]))
 #These "asserts" using only for self-checking and not necessary for auto-testing
 if __name__ == '__main__':
     print('Example:')
