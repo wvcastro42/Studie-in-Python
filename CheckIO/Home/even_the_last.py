@@ -3,9 +3,6 @@ def checkio(array: list) -> int:
     if len(array) == 0:
         return 0
 
-    elif len(array) == 1:
-        return array[0] ** 2
-
     else:
         count = 0
         for i in range(0, len(array), 2):
