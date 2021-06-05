@@ -1,11 +1,8 @@
 def first_word(text: str) -> str:
 
-    # your code here
-    new_text = text.strip(",.")
-    result = new_text.split()[0]
-    return (result.strip(",."))
-
-# print(first_word("greetings, friends"))
+    text = text.replace(',', '').replace('.', ' ').strip()
+    words_list = text.split()
+    return words_list[0]
 
 
 if __name__ == '__main__':
