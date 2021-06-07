@@ -1,14 +1,16 @@
 def count_digits(text: str) -> int:
-    #
-    # count = 0
-    # for i in text:
-    #     if i.isdigit():
-    #         count += 1
-    #
-    # return count
+    
+    count = 0
+    for i in text:
+        if i.isdigit():
+            count += 1
+
+    return count
 
 # OR return sum(c.isdigit() for c in text)
-    return len([x for x in text if x.isdigit()])
+# OR return len([x for x in text if x.isdigit()])
+# OR return sum([1 for c in text if c.isdigit()])
+
 
 if __name__ == '__main__':
     print("Example:")
