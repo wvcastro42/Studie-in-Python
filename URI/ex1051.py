@@ -13,20 +13,26 @@ A entrada contém apenas um valor de ponto flutuante, com duas casas decimais.
 Saída
 Imprima o texto "R$" seguido de um espaço e do valor total devido de Imposto de Renda, com duas casas após o ponto. Se o valor de entrada for menor ou igual a 2000, deverá ser impressa a mensagem "Isento".
 """
+
 salario = float(input())
-salario_orig = salario
 
-if salario > 4500:
-    dif4500 = salario - 4500
-    tx28 = dif4500 * 0.28
+if salario <= 2000:
+    print('Isento')
 
-if 3000.01 < salario <= 4500:
-    dif3000 = salario - 3000 - dif4500
-    tx18 = dif3000 * 0.18
+elif 2000.01 <= salario <= 3000:
+    t = salario - 2000
+    t8 = t * 0.08
+    print(f'R$ {t8:.2f}')
 
-dif2000 = salario - 2000 - (dif3000 + dif4500)
-tx8 = dif2000 * 0.08
+elif 3000.01 <= salario <= 4500:
+    t = salario - 2000
+    t8 = 1000 * 0.08
+    t18 = (t - 1000) * 0.18
+    print(f'R$ {t8 + t18:.2f}')
 
-total = tx8 + tx18 + tx28
-
-print(f'Isento' if salario_orig <= 2000 else f'R$ {total:.2f}')
+elif salario > 4500:
+    t = salario - 2000
+    t8 = 1000 * 0.08
+    t18 = 1500 * 0.18
+    t28 = (t-2500) * 0.28
+    print(f'R$ {t8 + t18 + t28:.2f}')
