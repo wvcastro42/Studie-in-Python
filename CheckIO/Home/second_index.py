@@ -1,10 +1,9 @@
 def second_index(text: str, symbol: str) -> [int, None]:
 
     if text.count(symbol) >= 2:
-        return text[(text.index(symbol)+1):].index(symbol) + text.index(symbol) + 1 if True else None
+        return text[(text.index(symbol)+1):].index(symbol) + text.index(symbol) + 1
     return None
 
-# print (second_index("find the river", "e"))
 
 if __name__ == '__main__':
     print('Example:')
