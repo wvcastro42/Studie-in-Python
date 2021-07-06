@@ -11,7 +11,6 @@ def date_time(time: str) -> str:
 
     return '{day} {month} {year} year {hours} {horas} {minutes} {minutos}'.format(day=day, month=month, year=year, hours=hours, minutes=minutes, horas='hour' if hours==1 else 'hours', minutos='minute' if minutes == 1 else 'minutes')
 
-
 print(date_time('09.05.1945 01:01'))
 
 
