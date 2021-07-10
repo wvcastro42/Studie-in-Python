@@ -11,33 +11,26 @@ MORSE = {'.-':    'a', '-...':  'b', '-.-.':  'c',
          '....-': '4', '.....': '5', '-....': '6',
          '--...': '7', '---..': '8', '----.': '9'
         }
-def spaces3(text):
-    list_3spaces = []
-
-    for i in range(len(text)):
-        if text[i:i+3] == '   ':
-            list_3spaces.append(i)
-    return list_3spaces
-
 
 def morse_decoder(code):
 
-    list_text = code.replace('   ', ' ').split(' ')
-    text = ''
-    spaces = spaces3(code)
+    splited = code.split(' ')
+    response = ''
 
-    for s in code:
+    for letter in splited:
+        if letter in MORSE:
 
-        for i in list_text:
-            if i in MORSE:
-                print(i)
-                text = text + MORSE[i]
+            if letter != '':
+                response = response + MORSE[letter]
+        else:
+            if response[-1] != ' ':
+                response = response + ' '
 
-    return text
+    return response.capitalize()
 
 
-print(morse_decoder(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"))
-print(spaces3(".. -   .-- .- ...   .-   --. --- --- -..   -.. .- -.--"))
+
+print(morse_decoder("... --- -- .   - . -..- -"))
 
 
 #
