@@ -5,6 +5,7 @@ def letter_queue(commands: List[str]) -> str:
 
     queue = []
     for command in commands:
+
         if command == 'POP':
             if queue: queue.pop(0)
 
