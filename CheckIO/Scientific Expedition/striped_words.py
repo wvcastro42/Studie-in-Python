@@ -3,15 +3,22 @@ CONSONANTS = 'bcdfghjklmnpqrstvwxz'
 VOWELS = 'aeiouy'
 
 def checkio(line: str) -> str:
-
-    line = re.sub(r'[^\w\s]','',line.lower()).split(' ')
+    count = 0
+    line = re.sub(r'[^\w\s]',' ',line.lower()).strip().split()
 
     for word in line:
-        if word.isalpha():
-            for idx, letter in enumerate(word):
-                print(idx, letter)
+        valida = True
 
-                SE índice (a partir do primeiro) for vogal/consoante, verificando o índice %2 par/impar, se está em consoantes ou vogais
+        for current_item, next_item in zip(word, word[1::]):
+
+            if valida and not (current_item in CONSONANTS and next_item in VOWELS or current_item in VOWELS and next_item in CONSONANTS):
+                valida = False
+
+        if valida and len(word) > 1:
+            count += 1
+
+    return count
+
 
 if __name__ == '__main__':
     print("Example:")
