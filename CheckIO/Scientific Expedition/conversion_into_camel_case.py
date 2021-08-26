@@ -1,5 +1,9 @@
 def to_camel_case(name: str) -> str:
 
+    # return name.title().replace('_', '')
+
+    # return ''.join([x.capitalize() for x in name.split('_')])
+
     camel_word = ''
     name = name.split('_')
 
@@ -7,6 +11,7 @@ def to_camel_case(name: str) -> str:
         camel_word += word[0].upper() + word[1:]
 
     return camel_word
+
 print(to_camel_case('my_function_name'))
 
 # if __name__ == '__main__':
