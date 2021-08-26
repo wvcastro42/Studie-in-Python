@@ -1,27 +1,18 @@
-def from_camel_case(name: str) -> str:
-
-    camel_word = ''
-
-    for current_item, next_item in zip(name, name[1:]):
-
-        if not camel_word:
-            if next_item.isupper():
-                camel_word = current_item.lower() + '_'
-            else:
-                camel_word = current_item.lower()
-
-        elif current_item.isupper() and next_item.isupper():
-            print(current_item.isupper() and next_item.isupper())
-            camel_word += current_item.lower() + '_'
-
-        elif current_item.islower() and next_item.isupper():
-            camel_word += current_item.lower() + "_"
-
+def from_camel_case(name):
+    words = []
+    for ch in name:
+        if ch.isupper():
+            words.append(ch.lower())
         else:
-            camel_word += current_item.lower()
+            words[-1] += ch
+    return '_'.join(words)
 
-    return camel_word + name[-1].lower()
-# print(from_camel_case("MFunctionName"))
+# import re
+#
+# def from_CamelCase(name):
+#     return '_'.join(re.findall('([A-Z][^A-Z]*)', name)).lower()
+
+
 if __name__ == '__main__':
     print("Example:")
     print(from_camel_case("Name"))
